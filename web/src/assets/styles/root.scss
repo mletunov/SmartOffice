@@ -2,6 +2,59 @@
 @import "constants";
 
 
-.root-block{
-  background-color: $main_background;
+.logo-block {
+  color: $logo_color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 18pt;
+  border: 2px solid white;
+  border-radius: $border_radius_common;
+}
+
+.header-block{
+  padding-top: 10px;
+  height: $header_heigth;
+}
+
+.content-block{
+  padding-top: 15px;
+  height: $content_height;
+}
+
+.top-bar-block{
+  padding: 5px;
+  height: 100%;
+}
+
+.top-bar{
+  border-radius: $border_radius_common;
+  background-color: $white;
+  display:flex;
+  height: 100%;
+}
+
+.side-panel-block {
+  padding: 0 !important;
+  height: 100%;
+  width: 100%;
+}
+
+.side-panel {
+  background-color: $white;
+  border-radius: $border_radius_common;
+  height: 100%;
+  width: 100%;
+}
+
+.children-block{
+  border-radius: $border_radius_common;
+  background-color: $white;
+  height: 100%;
+}
+
+.children-column{
+  height: 100%;
+  width: 100%
 }
