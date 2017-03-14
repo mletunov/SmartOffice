@@ -1,0 +1,5 @@
+FROM letunovms/smartoffice:init
+
+# install python 3.4
+COPY python.sh /tmp
+RUN chmod +x /tmp/python.sh && sync && /tmp/python.sh && rm /tmp/python.sh
