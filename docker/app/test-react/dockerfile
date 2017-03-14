@@ -1,0 +1,9 @@
+FROM letunovms/smartoffice:node
+
+RUN cd /opt && \
+    git clone https://github.com/alborozd/react-redux-wishlist.git && \
+    cd react-redux-wishlist && \
+    npm install
+
+WORKDIR /opt/react-redux-wishlist
+ENTRYPOINT webpack-dev-server --port 80 --hot --host 0.0.0.0
