@@ -1,0 +1,10 @@
+FROM letunovms/smartoffice:node
+
+RUN cd /opt && \
+    git clone https://github.com/mletunov/SmartOffice.git && \
+    mv SmartOffice/web web && rm SmartOffice -r && \
+    cd web && \
+    npm install
+
+WORKDIR /opt/web
+ENTRYPOINT webpack-dev-server --port 80 --hot --host 0.0.0.0
