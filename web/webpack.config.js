@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -10,7 +11,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'bundle.js',
-        publicPath: '/static/'
+        publicPath: '/'
     },
     devServer: {
         hot: true,
@@ -26,5 +27,9 @@ module.exports = {
                 test: /\.js$/,
             }
         ]
-    }
+    },
+    plugins: [new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: 'index.html'
+    })]
 }
