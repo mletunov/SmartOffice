@@ -17,7 +17,14 @@ class Root extends Component {
                     <div className="row header-block">
                         <div className="col-md-3 logo-block">Smart Office</div>
                         <div className="col-md-9 top-bar-block">
-                            <div className="top-bar"></div>
+                            <div className="top-bar">
+
+                              <button className="btn btn-default log-out-btn">Log Out</button>
+                              <div className="btn-group btn-group-lg lang-block" role="group">
+                                <button className="btn btn-default lng-btn">En</button>
+                                <button className="btn btn-default lng-btn">Ru</button>
+                              </div>
+                            </div>
                         </div>
                     </div>
                     <div className="row content-block">

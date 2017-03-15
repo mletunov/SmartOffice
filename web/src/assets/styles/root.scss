@@ -31,7 +31,6 @@
 .top-bar{
   border-radius: $border_radius_common;
   background-color: $white;
-  display:flex;
   height: 100%;
 }
 
@@ -61,4 +60,23 @@
 
 .left-nav-block{
   width: 100%;
+}
+
+.log-out-btn{
+  display:block !important;
+  font-size: 16pt !important;
+  font-weight: bold !important;
+  float:right !important;
+  height: 100%;
+  margin-right: 1px;
+}
+
+.lang-block {
+  height: 100%!important;
+  float: right!important;
+  margin-right: 2px;
+}
+
+.lng-btn {
+  height: 100%;
 }

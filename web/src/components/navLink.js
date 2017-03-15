@@ -6,11 +6,9 @@ class NavLink extends Component {
 
     render() {
         return (
-
             <Link to={this.props.path} className="btn btn-default" activeClassName="btn-primary">
                 {this.props.text}
             </Link>
-
         );
     }
 }
