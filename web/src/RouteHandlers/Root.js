@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { Provider } from "react-redux";
 import store from "../store";
+import NavLink from "../components/navLink";
+
 import "../assets/styles/index.scss";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -21,7 +23,10 @@ class Root extends Component {
                     <div className="row content-block">
                         <div className="col-md-3 side-panel-block">
                           <div className="side-panel">
-
+                            <div className="btn-group-vertical left-nav-block" role="group" >
+                                <NavLink path="home" text={"Home"}/>
+                                <NavLink path="somePage" text={"Some Page"}/>
+                            </div>
                           </div>
                         </div>
                         <div className="col-md-9 children-column">
