@@ -1,0 +1,7 @@
+FROM letunovms/smartoffice:base-jenkins
+
+ARG node=https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-armv7l.tar.xz
+RUN apt-get install -y git python build-essential && \
+    wget -qO- $node | tar xvJ --strip-components=1 -C usr/local && \
+    npm config set unsafe-perm true -g --unsafe-perm && \
+    npm install webpack node-gyp -g
