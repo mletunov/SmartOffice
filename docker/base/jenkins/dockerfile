@@ -1,0 +1,7 @@
+FROM letunovms/smartoffice:base
+
+COPY jenkins.sh /tmp
+RUN chmod +x /tmp/jenkins.sh && sync && /tmp/jenkins.sh && rm /tmp/jenkins.sh
+
+EXPOSE 8080
+ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/local/jenkins.war"]
