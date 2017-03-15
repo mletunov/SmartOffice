@@ -1,7 +1,9 @@
 FROM letunovms/smartoffice:base
 
+ENV DEBIAN_FRONTEND=noninteractive JENKINS_HOME=/var/jenkins
 COPY jenkins.sh /tmp
 RUN chmod +x /tmp/jenkins.sh && sync && /tmp/jenkins.sh && rm /tmp/jenkins.sh
 
+VOLUME /var/jenkins
 EXPOSE 8080
-ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/local/jenkins.war"]
+ENTRYPOINT ["/usr/bin/java", "-jar", "/var/jenkins.war"]
