@@ -1,4 +1,4 @@
 FROM resin/rpi-raspbian:jessie-20170111
 
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils && apt-get upgrade \
-    && apt-get install -y --no-install-recommends wget git nano
+    && apt-get install -y --no-install-recommends wget
