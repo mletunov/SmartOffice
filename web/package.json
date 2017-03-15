@@ -1,5 +1,5 @@
 {
-  "name": "react-redux-template",
+  "name": "SmartOffice",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alborozd/react-redux-template.git"
+    "url": "git+https://github.com/mletunov/SmartOffice.git"
   },
   "author": "Alexander Borozdyuhin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alborozd/react-redux-template/issues"
+    "url": "https://github.com/mletunov/SmartOffice/issues"
   },
-  "homepage": "https://github.com/alborozd/react-redux-template#readme",
+  "homepage": "https://github.com/mletunov/SmartOffice#readme",
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
