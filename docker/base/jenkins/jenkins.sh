@@ -1,18 +1,16 @@
 #!/bin/bash
 
 
-# The special trick here is to download and install the Oracle Java 8 installer from Launchpad.net
-echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list && \
-echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list && \
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
+# Install OpenJDK 8 runtime without X11 support
+echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/backports.list && \
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 8B48AD6246925553 && \
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 7638D0442B90D010 && \
+apt-get update && \
+apt-get -t jessie-backports install -y openjdk-8-jre-headless --no-install-recommends && \
+rm /etc/apt/sources.list.d/backports.list && rm -rf /var/lib/apt/lists/ftp.debian.org*
 
-# Make sure the Oracle Java 8 license is pre-accepted, and install Java 8
-echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections  && \
-echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections  && \
-apt-get update && apt-get install -y oracle-java8-installer libapparmor-dev && apt-get clean
-
-mkdir -p /var/jenkins && \
+mkdir -p $JENKINS_HOME && \
 adduser --disabled-login --no-create-home --shell /bin/sh jenkins && \
-chown -R jenkins:jenkins /var/jenkins && \
-wget -O /var/jenkins.war http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war && \
-chmod 644 /var/jenkins.war
+chown -R jenkins:jenkins $JENKINS_HOME && \
+wget -O $JENKINS_WAR http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war && \
+chmod 644 $JENKINS_WAR
