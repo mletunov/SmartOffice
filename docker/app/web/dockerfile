@@ -1,5 +1,8 @@
 FROM letunovms/smartoffice:node
 
+RUN apt-get install -y python build-essential && \
+    npm install -g node-gyp
+
 RUN cd /opt && \
     git clone https://github.com/mletunov/SmartOffice.git && \
     mv SmartOffice/web web && rm SmartOffice -r && \
