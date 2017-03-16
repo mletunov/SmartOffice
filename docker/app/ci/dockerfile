@@ -1,4 +1,12 @@
-FROM letunovms/smartoffice:base-jenkins
+FROM letunovms/smartoffice:base
+
+RUN apt-get install -y cron && \
+    mkdir -p /var/cron/cron.d && \
+    mv /etc/cron.d /var/cron/cron.d && \
+    ln -s /var/cron/cron.d /etc/cron.d
+
+VOLUME /var/cron
+CMD ["cron", "-f"]
 
 ARG node=https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-armv7l.tar.xz
 RUN apt-get install -y git python build-essential && \
