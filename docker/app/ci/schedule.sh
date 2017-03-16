@@ -5,6 +5,9 @@ workspace=/var/cron
 root=$workspace/SmartOffice
 log=/var/cron/log
 
+export SHELL=/bin/sh
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
 if [ ! -d $root ]; then
     echo "`date`: Git clone " >> $log
     mkdir -p $workspace && cd $workspace
@@ -17,5 +20,5 @@ fi
 
 if [ -n "$changes" ]; then
     # build web
-    $root/docker/app/web/build.sh `pwd`
+    chmod +x $root/docker/app/web/build.sh && sync && $root/docker/app/web/build.sh $root $log
 fi
