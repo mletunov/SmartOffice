@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import NavLink from "./navLink";
+import NavLink from "../RouteHandlers/root/components/navLink";
 
 class NavigationBar extends Component {
     render() {
         return (
             <div className="btn-group-vertical left-nav-block" role="group" >
-                <NavLink path="home" text={"Home"} />
-                <NavLink path="somePage" text={"Some Page"} />
+                <NavLink path="home" textCode={"home_nav"} />
+                <NavLink path="somePage" textCode={"some_page_nav"} />
             </div>
         );
     }

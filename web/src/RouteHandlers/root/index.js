@@ -6,24 +6,35 @@ import NavLink from "./components/navLink";
 
 import "../../assets/styles/index.scss";
 import "bootstrap/dist/css/bootstrap.css";
+import { FormattedMessage } from 'react-intl';
 
-import NavigationBar from "../components/navigationBar";
+import NavigationBar from "../../components/navigationBar";
+
+import { switchLanguage } from '../../intl/IntlActions';
 
 class Root extends Component {
-
+  debugger;
     render() {
+        let self = this;
+        const languageNodes = this.props.intl.enabledLanguages.map(
+            lang => {
+              let className = (lang === self.props.intl.locale) ? "btn-primary" : "btn-default";
+              return <button key={lang} onClick={() => this.props.dispatch(switchLanguage(lang))} className={"btn lng-btn " + className}>{lang}</button>
+            }
+          );
         return (
-            <Provider store={store}>
                 <div className="container">
                     <div className="row header-block">
-                        <div className="col-md-3 logo-block">Smart Office</div>
+                        <div className="col-md-3 logo-block">
+                          <FormattedMessage id="app_title" />
+                        </div>
                         <div className="col-md-9 top-bar-block">
                             <div className="top-bar">
-
-                              <button className="btn btn-default log-out-btn">Log Out</button>
+                              <button className="btn btn-default log-out-btn">
+                                <FormattedMessage id="logout" />
+                              </button>
                               <div className="btn-group btn-group-lg lang-block" role="group">
-                                <button className="btn btn-default lng-btn">En</button>
-                                <button className="btn btn-default lng-btn">Ru</button>
+                                {languageNodes}
                               </div>
                             </div>
                         </div>
@@ -40,11 +51,15 @@ class Root extends Component {
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </Provider>
         );
     }
 }
 
-export default Root;
+function mapStateToProps(store) {
+  return {
+    intl: store.intl,
+  };
+}
+
+export default connect(mapStateToProps)(Root);
