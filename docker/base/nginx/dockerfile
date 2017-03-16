@@ -1,4 +1,4 @@
-FROM letunovms/smartoffice:python-3.4
+FROM letunovms/smartoffice:base
 
 COPY nginx.sh /tmp
 RUN chmod +x /tmp/nginx.sh && sync && /tmp/nginx.sh && rm /tmp/nginx.sh
