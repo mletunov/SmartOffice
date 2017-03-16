@@ -1,6 +1,0 @@
-FROM letunovms/smartoffice:init
-
-# install nmp 6.10.0
-ARG node_tarball=https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-armv7l.tar.xz
-COPY node.sh /tmp
-RUN chmod +x /tmp/node.sh && sync && /tmp/node.sh $node_tarball && rm /tmp/node.sh
