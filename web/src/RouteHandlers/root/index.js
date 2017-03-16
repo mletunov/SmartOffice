@@ -8,7 +8,7 @@ import "../../assets/styles/index.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import { FormattedMessage } from 'react-intl';
 
-import NavigationBar from "../../components/navigationBar";
+import NavigationBar from "./components/navigationBar";
 
 import { switchLanguage } from '../../intl/IntlActions';
 
