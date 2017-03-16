@@ -17,7 +17,6 @@ class SomePage extends Component {
    }
 
     componentDidMount() {
-        console.log("DID MOUNT");
         DevicesApi.getAll()
             .then(response => {
                 console.log("RESPONSE: ", response)
