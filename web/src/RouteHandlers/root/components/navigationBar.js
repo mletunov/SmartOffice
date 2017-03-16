@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavLink from "./navLink";
+import NavLink from "../../../components/navLink";
 
 class NavigationBar extends Component {
     render() {

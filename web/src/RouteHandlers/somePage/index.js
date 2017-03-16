@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import store from "../../store";
 import  { Link } from "react-router";
 
-import { DevicesApi } from "../api";
+import { DevicesApi } from "../../api";
 
 class SomePage extends Component {
 
@@ -17,7 +17,6 @@ class SomePage extends Component {
    }
 
     componentDidMount() {
-        console.log("DID MOUNT");
         DevicesApi.getAll()
             .then(response => {
                 console.log("RESPONSE: ", response)

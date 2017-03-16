@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { Provider } from "react-redux";
 import store from "../../store";
-import NavLink from "./components/navLink";
+//import NavLink from "./components/navLink";
 
 import "../../assets/styles/index.scss";
 import "bootstrap/dist/css/bootstrap.css";
 
-import NavigationBar from "../components/navigationBar";
+import NavigationBar from "./components/navigationBar";
 
 class Root extends Component {
 
@@ -31,7 +31,7 @@ class Root extends Component {
                     <div className="row content-block">
                         <div className="col-md-3 side-panel-block">
                           <div className="side-panel">
-                            <NavigationBar />
+                             <NavigationBar />
                           </div>
                         </div>
                         <div className="col-md-9 children-column">
