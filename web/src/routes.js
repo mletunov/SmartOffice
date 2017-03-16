@@ -1,8 +1,8 @@
 import { Router, Route, Redirect, IndexRedirect, IndexRoute, hashHistory, browserHistory } from 'react-router'
-import Root from './RouteHandlers/Root'
+import Root from './RouteHandlers/root'
 import React from 'react'
-import Home from "./RouteHandlers/Home";
-import SomePage from "./RouteHandlers/SomePage";
+import Home from "./RouteHandlers/home";
+import SomePage from "./RouteHandlers/somePage";
 
 export default (
     <Router history = {browserHistory}>

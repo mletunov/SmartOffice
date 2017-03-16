@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { Provider } from "react-redux";
-import store from "../store";
-import NavLink from "../components/navLink";
+import store from "../../store";
+import NavLink from "./components/navLink";
 
-import "../assets/styles/index.scss";
+import "../../assets/styles/index.scss";
 import "bootstrap/dist/css/bootstrap.css";
 
 
