@@ -24,6 +24,6 @@ if [ -n "$changes" ]; then
     chmod +x $web_build && sync && $web_build $root $log
 
     # build api mock
-    api_build=$root/docker/app/device/buils.sh
+    api_build=$root/docker/app/device/build.sh
     chmod +x $api_build && sync && $api_build $root $log
 fi
