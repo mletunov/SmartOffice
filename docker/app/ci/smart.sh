@@ -20,5 +20,6 @@ fi
 
 if [ -n "$changes" ]; then
     # build web
-    chmod +x $root/docker/app/web/build.sh && sync && $root/docker/app/web/build.sh $root $log
+    web_build=$root/docker/app/web/build.sh
+    chmod +x $web_build && sync && $web_build $root $log
 fi
