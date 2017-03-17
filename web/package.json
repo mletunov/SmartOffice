@@ -1,7 +1,7 @@
 {
   "name": "SmartOffice",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web client for smart office",
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run dev\" \"npm run api\"",
