@@ -26,7 +26,7 @@ class Root extends Component {
                 <div className="container">
                     <div className="row header-block">
                         <div className="col-md-3 logo-block">
-                          <FormattedMessage id="app_title" />
+                          <FormattedMessage id="app_title" />                          
                         </div>
                         <div className="col-md-9 top-bar-block">
                             <div className="top-bar">
@@ -35,6 +35,9 @@ class Root extends Component {
                               </button>
                               <div className="btn-group btn-group-lg lang-block" role="group">
                                 {languageNodes}
+                              </div>
+                              <div>
+                                Version: {__VERSION__}
                               </div>
                             </div>
                         </div>

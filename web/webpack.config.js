@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ApiResolver = require("./api.resolver");
+var packageJson = require("./package.json");
 
 module.exports = {
     devtool: 'source-map',
@@ -59,7 +60,8 @@ module.exports = {
             template: 'index.html'
         }),
         new webpack.DefinePlugin({
-            __API__: JSON.stringify(ApiResolver.resolveUrl(process.env.NODE_ENV))
+            __API__: JSON.stringify(ApiResolver.resolveUrl(process.env.NODE_ENV)),
+            __VERSION__: JSON.stringify(packageJson.version)
         })
     ]
 }
