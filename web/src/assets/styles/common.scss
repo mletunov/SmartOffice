@@ -6,3 +6,9 @@ html, body{
     padding: 0;
     background-color: $main_background !important;
 }
+
+table.cmn-tbl {
+  border-collapse:separate;
+  border-radius:5px;
+  -moz-border-radius:5px;
+}

@@ -6,6 +6,8 @@ import  { Link } from "react-router";
 
 import { DevicesApi } from "../../api";
 
+import CommonTable from "../../components/commonTable";
+
 class SomePage extends Component {
 
    constructor() {
@@ -31,12 +33,7 @@ class SomePage extends Component {
     render() {
         console.log(this.state);
         return (
-            <div>
-                Spider Man!
-                {
-                    JSON.stringify(this.state.devices || [])
-                }
-            </div>
+          <CommonTable items={this.state.devices} />
         );
     }
 }
