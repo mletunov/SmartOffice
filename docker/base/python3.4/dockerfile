@@ -1,4 +1,4 @@
-FROM letunovms/smartoffice:init
+FROM letunovms/smartoffice:base
 
 # install python 3.4
 COPY python.sh /tmp
