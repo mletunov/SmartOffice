@@ -1,0 +1,8 @@
+FROM letunovms/smartoffice:base-node
+
+COPY / /tmp/api/
+RUN mkdir -p /var/api && \
+    mv /tmp/api/build/* /var/api && \
+    rm /tmp/api -rf
+
+CMD ["node", "/var/api/server.js"]
