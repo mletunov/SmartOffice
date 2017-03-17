@@ -1,9 +1,10 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ApiResolver = require("./api.resolver");
 
 module.exports = {
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'source-map',
     entry: [
         'babel-polyfill',
         './src/app.js'
@@ -52,8 +53,13 @@ module.exports = {
               }
         ]
     },
-    plugins: [new HtmlWebpackPlugin({
-        filename: 'index.html',
-        template: 'index.html'
-    })]
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: 'index.html'
+        }),
+        new webpack.DefinePlugin({
+            __API__: JSON.stringify(ApiResolver.resolveUrl(process.env.NODE_ENV))
+        })
+    ]
 }

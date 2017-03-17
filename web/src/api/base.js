@@ -1,10 +1,8 @@
 
-import { API_BASE } from "../constants";
-
 class BaseApi {
 
     static call(url, data, method = "GET") {
-        return fetch(API_BASE + url, {
+        return fetch(__API__ + url, {
             method: method,
             headers: {
                 'Accept': 'application/json',
