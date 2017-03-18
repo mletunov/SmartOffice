@@ -1,0 +1,9 @@
+FROM letunovms/smartoffice:base-python
+
+COPY / /tmp/app/
+RUN mkdir -p /var/app && \
+    mv /tmp/app/build/* /var/app && \
+    rm /tmp/app -rf && \
+    pip install -r /var/app/requirements.txt
+
+CMD ["python3", "/var/app/app.py"]

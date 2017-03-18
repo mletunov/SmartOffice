@@ -26,4 +26,8 @@ if [ -n "$changes" ]; then
     # build api mock
     api_build=$root/docker/app/device/build.sh
     chmod +x $api_build && sync && $api_build $root $log
+
+    # build logic app
+    logic_build=$root/docker/app/logic/build.sh
+    chmod +x $logic_build && sync && $logic_build $root $log
 fi
