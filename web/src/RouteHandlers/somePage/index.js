@@ -7,6 +7,7 @@ import  { Link } from "react-router";
 import { DevicesApi } from "../../api";
 
 import CommonTable from "../../components/commonTable";
+import Loading from "../../components/loading";
 
 class SomePage extends Component {
 
@@ -14,16 +15,21 @@ class SomePage extends Component {
        super();
 
        this.state = {
-           devices: []
+           devices: [],
+           loading: false
        }
    }
 
     componentDidMount() {
+      this.setState({
+          loading: true
+      });
         DevicesApi.getAll()
             .then(response => {
                 console.log("RESPONSE: ", response)
                 this.setState({
-                    devices: response
+                    devices: response,
+                    loading: false
                 });
             }).catch(error => {
                 console.log(error);
@@ -33,7 +39,9 @@ class SomePage extends Component {
     render() {
         console.log(this.state);
         return (
-          <CommonTable items={this.state.devices} />
+          <Loading inProgress={this.state.loading}>
+            <CommonTable items={this.state.devices} />
+          </Loading>
         );
     }
 }

@@ -37,6 +37,10 @@ module.exports = {
                  loader: "style-loader!css-loader!sass-loader"
               },
               {
+                test: /\.(png|jpg|gif)$/,
+                loader: 'url-loader'
+              },
+              {
                  test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
                  loader: 'url-loader?limit=10000&mimetype=application/font-woff'
               },
