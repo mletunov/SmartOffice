@@ -7,6 +7,7 @@ import store from "../../store";
 import "../../assets/styles/index.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import { FormattedMessage } from 'react-intl';
+import Helmet from "react-helmet";
 
 import NavigationBar from "./components/navigationBar";
 
@@ -23,10 +24,12 @@ class Root extends Component {
             }
           );
         return (
+              <div>
+                <Helmet title={this.context.intl.formatMessage({id:"app_title", defaultMessage: "Smart Office"})}/>
                 <div className="container">
                     <div className="row header-block">
                         <div className="col-md-3 logo-block">
-                          <FormattedMessage id="app_title" />                          
+                          <FormattedMessage id="app_title" />
                         </div>
                         <div className="col-md-9 top-bar-block">
                             <div className="top-bar">
@@ -55,6 +58,7 @@ class Root extends Component {
                         </div>
                     </div>
                 </div>
+              </div>
         );
     }
 }
@@ -63,6 +67,10 @@ function mapStateToProps(store) {
   return {
     intl: store.intl,
   };
+}
+
+Root.contextTypes ={
+ intl:React.PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps)(Root);
