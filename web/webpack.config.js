@@ -1,75 +1,22 @@
-var path = require('path')
-var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ApiResolver = require("./api.resolver");
-var packageJson = require("./package.json");
 
-module.exports = {
-    devtool: 'source-map',
-    entry: [
-        'babel-polyfill',
-        './src/app.js'
-    ],
-    output: {
-        path: path.join(__dirname, 'build'),
-        filename: 'bundle.js',
-        publicPath: '/'
-    },
-    devServer: {
-        hot: true,
-        historyApiFallback: true,
-        proxy: [{
-            path: "/api/",
-            target: "http://localhost:3001"
-        }]
-    },
-    module: {
-        loaders: [
-              {
-                  loaders: ['babel-loader'],
-                  include: [
-                      path.resolve(__dirname, "src"),
-                  ],
-                  test: /\.js$/,
-              },
-              {
-                test: /\.css$/,
-                loader: "style-loader!css-loader"
-              },
-              {
-                 test: /\.scss$/,
-                 loader: "style-loader!css-loader!sass-loader"
-              },
-              {
-                test: /\.(png|jpg|gif)$/,
-                loader: 'url-loader'
-              },
-              {
-                 test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-                 loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-              },
-              {
-                 test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-                 loader: 'url-loader?limit=10000&mimetype=application/octet-stream'
-              },
-              {
-                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                 loader: 'file-loader'
-              },
-              {
-                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                 loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
-              }
-        ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: 'index.html'
-        }),
-        new webpack.DefinePlugin({
-            //__API__: JSON.stringify(ApiResolver.resolveUrl(process.env.NODE_ENV)),
-            __VERSION__: JSON.stringify(packageJson.version)
-        })
-    ]
+var merge = require("webpack-merge");
+
+var _configs = {
+    global: require(__dirname + "/configs/global"),
+    development: require(__dirname + "/configs/development"),
+    production: require(__dirname + "/configs/production")
 }
+
+var _loadConfiguration = function (environment) {
+
+    if (!environment) throw Exception("Can't find environment variable");
+    if (!_configs[environment]) throw Exception("Can't find environment configuration. See _configs object");
+
+    return merge(
+        _configs["global"](__dirname, environment),
+        _configs[environment](__dirname, environment)      
+    );
+
+}
+
+module.exports = _loadConfiguration(process.env.NODE_ENV);
