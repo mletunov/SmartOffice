@@ -11,4 +11,13 @@ table.cmn-tbl {
   border-collapse:separate;
   border-radius:5px;
   -moz-border-radius:5px;
+
+  td {
+    cursor: pointer;
+  }
+}
+
+.selected-cell {
+  background-color: $blue !important;
+  color: $white !important;
 }

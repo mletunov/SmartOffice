@@ -8,6 +8,7 @@ import "../../assets/styles/index.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import { FormattedMessage } from 'react-intl';
 import Helmet from "react-helmet";
+import cellActions from "../../actionCreators/selectedCell"
 
 import NavigationBar from "./components/navigationBar";
 
@@ -57,6 +58,14 @@ class Root extends Component {
                             </div>
                         </div>
                     </div>
+                    <div className="row">
+                        <div className="col-md-3"></div>
+                        <div className="col-md-9 footer-block">
+                            <div className="footer">
+                              {this.props.selectedCell ? this.props.selectedCell.value : null}
+                            </div>
+                        </div>
+                    </div>
                 </div>
               </div>
         );
@@ -66,6 +75,7 @@ class Root extends Component {
 function mapStateToProps(store) {
   return {
     intl: store.intl,
+    selectedCell: store.selectedCell
   };
 }
 

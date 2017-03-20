@@ -81,3 +81,18 @@
 .lng-btn {
   height: 100%;
 }
+
+.footer-block{
+  height: 120px;
+  margin-top: 10px;
+
+  .footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+    height: 100%;
+    border-radius: $border_radius_common;
+    font-size: 19pt;
+  }
+}
