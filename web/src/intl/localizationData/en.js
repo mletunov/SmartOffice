@@ -3,7 +3,8 @@ export default {
   messages: {
     app_title: "Smart Office",
     home_nav: "Home",
-    some_page_nav: "Some Page",
-    logout: "Log Out"
+    devices_nav: "Devices",
+    logout: "Log Out",
+    add_dev: "Add new device"
   },
 };

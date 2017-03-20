@@ -5,8 +5,8 @@ class NavigationBar extends Component {
     render() {
         return (
             <div className="btn-group-vertical left-nav-block" role="group" >
-                <NavLink path="home" textCode={"home_nav"} />
-                <NavLink path="somePage" textCode={"some_page_nav"} />
+                <NavLink path="/home" textCode={"home_nav"} />
+                <NavLink path="/devices" textCode={"devices_nav"} />
             </div>
         );
     }

@@ -3,7 +3,8 @@ export default {
   messages: {
     app_title: "Умный Офис",
     home_nav: "Дом",
-    some_page_nav: "Просто страница",
-    logout: "Выход"
+    devices_nav: "Устройства",
+    logout: "Выход",
+    add_dev: "Добавить новое устройство"
   }
 };
