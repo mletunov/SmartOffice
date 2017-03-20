@@ -2,7 +2,7 @@
 class BaseApi {
 
     static call(url, data, method = "GET") {
-        return fetch(__API__ + url, {
+        return fetch("/api/" + url, {
             method: method,
             headers: {
                 'Accept': 'application/json',

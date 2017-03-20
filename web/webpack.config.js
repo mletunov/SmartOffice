@@ -17,7 +17,11 @@ module.exports = {
     },
     devServer: {
         hot: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        proxy: [{
+            path: "/api/",
+            target: "http://localhost:3001"
+        }]
     },
     module: {
         loaders: [
@@ -64,7 +68,7 @@ module.exports = {
             template: 'index.html'
         }),
         new webpack.DefinePlugin({
-            __API__: JSON.stringify(ApiResolver.resolveUrl(process.env.NODE_ENV)),
+            //__API__: JSON.stringify(ApiResolver.resolveUrl(process.env.NODE_ENV)),
             __VERSION__: JSON.stringify(packageJson.version)
         })
     ]
