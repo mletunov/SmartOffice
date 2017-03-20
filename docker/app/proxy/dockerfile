@@ -1,0 +1,7 @@
+FROM letunovms/smartoffice:base-nginx
+
+COPY / /tmp/www/
+RUN rm /var/www/* -rf && \
+    mv /tmp/www/web.conf /etc/nginx/conf.d/ && \
+    rm /etc/nginx/sites-enabled/default && \
+    rm /tmp/www -rf

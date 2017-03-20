@@ -30,6 +30,10 @@ if [ -n "$changes" ]; then
     # build logic app
     logic_build=$root/docker/app/logic/build.sh
     chmod +x $logic_build && sync && $logic_build $root $log
+    
+    # build nginx proxy
+    proxy_build=$root/docker/app/proxy/build.sh
+    chmod +x $proxy_build && sync && $proxy_build $root $log
 
     cd $workspace && \
     docker-compose down && \
