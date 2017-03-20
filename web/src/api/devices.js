@@ -7,6 +7,10 @@ class DevicesApi extends BaseApi {
         return this.call("devices");
     }
 
+    static register(device) {
+        return this.call("devices/register", device, "POST");
+    }
+
 }
 
 export default DevicesApi;
