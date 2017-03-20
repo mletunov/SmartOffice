@@ -30,4 +30,9 @@ if [ -n "$changes" ]; then
     # build logic app
     logic_build=$root/docker/app/logic/build.sh
     chmod +x $logic_build && sync && $logic_build $root $log
+
+    cd $workspace && \
+    docker-compose down && \
+    docker-compose up -d && \
+    docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
 fi

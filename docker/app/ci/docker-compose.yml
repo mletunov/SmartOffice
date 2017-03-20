@@ -1,0 +1,31 @@
+version: '2'
+services:
+  logic:
+    image: logic-app
+    expose:
+      - "5000"
+
+  device:
+    image: device-api
+    expose:
+      - "3001"
+    depends_on:
+      - logic
+
+  web:
+    image: web-app
+    expose:
+      - "80"
+    depends_on:
+      - device
+      - logic
+
+  nginx:
+    image: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web
+      - logic
+      - device
