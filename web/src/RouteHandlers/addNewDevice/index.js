@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { Provider } from "react-redux";
 import store from "../../store";
+import AddDeviceForm from "./components/addDeviceForm";
 
 
 class AddNewDevice extends Component {
@@ -10,16 +11,9 @@ class AddNewDevice extends Component {
        super();
    }
 
-    componentDidMount() {
-
-    }
-
     render() {
-
         return (
-          <div>
-            "add device"
-          </div>
+          <AddDeviceForm/>
         );
     }
 }
